@@ -1,14 +1,14 @@
  ###LocalHost 
 ###GET ALL owner
-GET http://localhost:3000/owner
+//GET http://localhost:3000/owner
 GET http://localhost:3000/cars
 
 ###GET cars BY ID
-GET http://localhost:3000/owner
+//GET http://localhost:3000/owner
 GET http://localhost:3000/cars/67e88583dc270d5da74f5fbd
 
 ###CREATE cars
-POST http://localhost:3000/owner HTTP/1.1
+//POST http://localhost:3000/owner HTTP/1.1
 POST http://localhost:3000/cars HTTP/1.1
 Content-type: application/json
 
@@ -23,20 +23,20 @@ Content-type: application/json
     "registration": "fnv 456"
   }
 
-{
-"firstname":"cairo",
-"lastname":"amir",
-"email":"anir@gmail.com",
-"birthday":"06/10/1967",
-"color":"yellow",
-"phone":"0797561339",
-"city":"newyork"
-}
+# {
+# "firstname":"cairo",
+# "lastname":"amir",
+# "email":"anir@gmail.com",
+# "birthday":"06/10/1967",
+# "color":"yellow",
+# "phone":"0797561339",
+# "city":"newyork"
+# }
 
 
 ###PUT Cars
 PUT http://localhost:3000/cars/67e88583dc270d5da74f5fbd HTTP/1.1
-PUT http://localhost:3000/owner/67e8841ddc270d5da74f5fbc HTTP/1.1
+//PUT http://localhost:3000/owner/67e8841ddc270d5da74f5fbc HTTP/1.1
 content-type: application/json
 
 {
@@ -52,19 +52,19 @@ content-type: application/json
     "registration": "kbc 123"
   }
 
-  {
-"firstname":"chally",
-"lastname":"plucky",
-"email":"plucky@gmail.com",
-"birthday":"08/11/1956",
-"color":"blue",
-"phone":"0797561339",
-"city":"newyork"
-}
+#   {
+# "firstname":"chally",
+# "lastname":"plucky",
+# "email":"plucky@gmail.com",
+# "birthday":"08/11/1956",
+# "color":"blue",
+# "phone":"0797561339",
+# "city":"newyork"
+# }
 
 ###delete car
 delete http://localhost:3000/cars/67e88583dc270d5da74f5fbd HTTP/1.1
-delete http://localhost:3000/owner/67e8841ddc270d5da74f5fbc HTTP/1.1
+//delete http://localhost:3000/owner/67e8841ddc270d5da74f5fbc HTTP/1.1
 content-type: application/json
 
 
