@@ -5,7 +5,9 @@ const { ObjectId } = require("mongodb");
 const getAll = async (req, res) => {
   try {
     const database = db.getDatabase();
-    const result = await database.collection("cars").find().toArray();
+    console.log("get all cars function activated");
+
+const result = await database.collection("cars").find().toArray();
     res.setHeader("Content-Type", "application/json");
     res.status(200).json(result);
   } catch (error) {
