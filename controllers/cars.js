@@ -2,18 +2,18 @@ const db = require("../data/db");
 const { ObjectId } = require("mongodb");
 
 const getAll = async (req, res) => {
-  try{
-    const database = db.getDatabase(); 
-    const cars = await database.collection('cars').find();
-    cars.toArray().then((cars) => {
-res.setHeader("Content-Type", "application/json");
-    res.status(200).json(cars); // ✅ Corrected variable name
-  });
-}catch (error) {
+  try {
+    const database = db.getDatabase();
+    const cars = await database.collection("cars").find().toArray(); // Just use `collection`
+
+    res.setHeader("Content-Type", "application/json");
+    res.status(200).json(cars);
+  } catch (error) {
     console.error("❌ Error fetching all cars:", error);
     res.status(500).json({ error: "Failed to fetch cars" });
-  };
 };
+};
+
 
 
 // Get a single car by ID
@@ -35,27 +35,36 @@ const getSingle = async (req, res) => {
   }
 };
 
-// Create a new car
+// ✅ Create a new car
 const createCars = async (req, res) => {
   try {
-    const { make, model, miles, color, year, engine, price, registration } = req.body;
-    if (!make || !model || !miles || !color || !year || !engine || !price || !registration) {
-      return res.status(400).json({ error: "Please provide all required fields" });
-    }
+    const car = {
+      model: req.body.model,
+      make: req.body.make,
+      miles: Number(req.body.miles),
+      color: req.body.color,
+      year: Number(req.body.year),
+      engine: req.body.engine,
+      price:  Number(req.body.price),
+      registration: req.body.registration,
+    };
 
-    const cars = { make, model, miles, color, year, engine, price, registration };
-    const response = await db.getDatabase().collection("cars").insertOne(cars);
+    // 📌 Get the database instance
+    const database = db.getDatabase();
+const response = await database.collection("cars").insertOne(car);
 
+    // 📌 Check if insertion was successful
     if (response.acknowledged) {
-      res.status(201).json(cars);
+      res.status(201).json({ message: "Car created successfully", carId: response.insertedId });
     } else {
       res.status(500).json({ error: "Failed to create car" });
     }
   } catch (error) {
     console.error("❌ Error creating car:", error);
-    res.status(500).json({ error: "Failed to create car" });
+    res.status(500).json({ error: "An error occurred while creating the car." });
   }
 };
+
 
 // Update an existing car
 const updateCars = async (req, res) => {

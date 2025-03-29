@@ -5,6 +5,6 @@ router.use("/", require("./swagger"));
 
 // Cars and owners routes
 router.use("/cars", require("./cars"));
-router.use("/owners", require("./owner"));
+router.use("/owner", require("./owner"));
 
 module.exports = router;

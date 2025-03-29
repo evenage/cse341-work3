@@ -12,7 +12,7 @@ const initDb = (callback) => {
 
   MongoClient.connect(process.env.MONGODB_URI)
     .then((client) => {
-      database = client.db(); // Store database instance instead of client
+      database = client.db("cse341-work3"); // Store database instance instead of client
       console.log("Connected to MongoDB");
       callback(null, database);
     })
@@ -21,6 +21,7 @@ const initDb = (callback) => {
       callback(err);
     });
 };
+
 
 const getDatabase = () => {
   if (!database) {

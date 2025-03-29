@@ -9,7 +9,6 @@ const saveCars = (req, res, next) => {
     year: "required|numeric|min:1900|max:2100",
     engine: "required|string",
     price: "required|numeric|min:0",
-    type: "required|string",
     registration: "required|string",
   };
 

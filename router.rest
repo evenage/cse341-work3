@@ -1,29 +1,42 @@
  ###LocalHost 
-###GET ALL cars
-GET http://localhost:3000/cars 
+###GET ALL owner
+GET http://localhost:3000/owner
+GET http://localhost:3000/cars
 
 ###GET cars BY ID
-GET http://localhost:3000/cars/67e5a8136b0c94e6754b4433
+GET http://localhost:3000/owner/67e7f1493a8260e19b716015
+GET http://localhost:3000/cars/67e805062b8cd0e3388f9030
 
 ###CREATE cars
+POST http://localhost:3000/owner HTTP/1.1
 POST http://localhost:3000/cars HTTP/1.1
 Content-type: application/json
 
-{
-    "model": "phantom" ,
-    "make": "rolls royce",
-    "miles": "9900",
-    "color": "pink",
-    "year": "1998",
-    "engine": "v23",
-    "price": "1000000000",
-    "registration": "fnv 456",
-  }
+# {
+#     "model": "phantom" ,
+#     "make": "rolls royce",
+#     "miles": 9900,
+#     "color": "pink",
+#     "year": 1998,
+#     "engine": "v23",
+#     "price": 1000000000,
+#     "registration": "fnv 456"
+#   }
 
+{
+"firstname":"cairo",
+"lastname":"amir",
+"email":"anir@gmail.com",
+"birthday":"06/10/1967",
+"color":"yellow",
+"phone":"0797561339",
+"city":"newyork"
+}
 
 
 ###PUT Cars
-PUT http://localhost:3000/cars/ HTTP/1.1
+PUT http://localhost:3000/cars/67e805062b8cd0e3388f9030 HTTP/1.1
+PUT http://localhost:3000/owner HTTP/1.1
 content-type: application/json
 
  {
@@ -36,11 +49,12 @@ content-type: application/json
     "year": "2019",
     "engine": "v6",
     "price": "20000",
-    "registration": "kbc 123",
+    "registration": "kbc 123"
   }
 
 ###delete car
-delete http://localhost:3000/cars/ HTTP/1.1
+delete http://localhost:3000/cars/67e805062b8cd0e3388f9030 HTTP/1.1
+delete http://localhost:3000/owner/67e7f1493a8260e19b716015 HTTP/1.1
 content-type: application/json
 
 

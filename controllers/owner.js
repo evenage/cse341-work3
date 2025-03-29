@@ -10,8 +10,8 @@ const getAll = async (req, res) => {
     res.setHeader("Content-Type", "application/json");
     res.status(200).json(result);
   } catch (error) {
-    console.error("❌ Error fetching all owners:", error);
-    res.status(500).json({ error: "Failed to fetch owners" });
+    console.error("❌ Error fetching all owner:", error);
+    res.status(500).json({ error: "Failed to fetch owner" });
   }
 };
 
