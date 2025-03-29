@@ -52,6 +52,16 @@ content-type: application/json
     "registration": "kbc 123"
   }
 
+  {
+"firstname":"chally",
+"lastname":"plucky",
+"email":"plucky@gmail.com",
+"birthday":"08/11/1956",
+"color":"blue",
+"phone":"0797561339",
+"city":"newyork"
+}
+
 ###delete car
 delete http://localhost:3000/cars/67e805062b8cd0e3388f9030 HTTP/1.1
 delete http://localhost:3000/owner/67e7f1493a8260e19b716015 HTTP/1.1
