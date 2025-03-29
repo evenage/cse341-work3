@@ -1,20 +1,20 @@
 const db = require("../data/db");
 const { ObjectId } = require("mongodb");
 
-// Get all cars
 const getAll = async (req, res) => {
-  try {
-    const database = db.getDatabase();
-    console.log("get all cars function activated");
-
-const result = await database.collection("cars").find().toArray();
-    res.setHeader("Content-Type", "application/json");
-    res.status(200).json(result);
-  } catch (error) {
+  try{
+    const database = db.getDatabase(); 
+    const cars = await database.collection('cars').find();
+    cars.toArray().then((cars) => {
+res.setHeader("Content-Type", "application/json");
+    res.status(200).json(cars); // ✅ Corrected variable name
+  });
+}catch (error) {
     console.error("❌ Error fetching all cars:", error);
     res.status(500).json({ error: "Failed to fetch cars" });
-  }
+  };
 };
+
 
 // Get a single car by ID
 const getSingle = async (req, res) => {
