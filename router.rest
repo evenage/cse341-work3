@@ -4,8 +4,8 @@
 GET http://localhost:3000/cars
 
 ###GET cars BY ID
-//GET http://localhost:3000/owner
-GET http://localhost:3000/cars/67e88583dc270d5da74f5fbd
+//GET http://localhost:3000/owner/67e7f1493a8260e19b716015
+GET http://localhost:3000/cars/67e5a33e6b0c94e6754b4430
 
 ###CREATE cars
 //POST http://localhost:3000/owner HTTP/1.1
@@ -35,11 +35,11 @@ Content-type: application/json
 
 
 ###PUT Cars
-PUT http://localhost:3000/cars/67e88583dc270d5da74f5fbd HTTP/1.1
-//PUT http://localhost:3000/owner/67e8841ddc270d5da74f5fbc HTTP/1.1
+PUT http://localhost:3000/cars/67e88ece2a034b42d2467980 HTTP/1.1
+//PUT http://localhost:3000/owner/67e88f232a034b42d2467981 HTTP/1.1
 content-type: application/json
 
-{
+ {
 
     
     "model": "camry" ,
@@ -52,7 +52,7 @@ content-type: application/json
     "registration": "kbc 123"
   }
 
-#   {
+ # {
 # "firstname":"chally",
 # "lastname":"plucky",
 # "email":"plucky@gmail.com",
@@ -63,8 +63,8 @@ content-type: application/json
 # }
 
 ###delete car
-delete http://localhost:3000/cars/67e88583dc270d5da74f5fbd HTTP/1.1
-//delete http://localhost:3000/owner/67e8841ddc270d5da74f5fbc HTTP/1.1
+delete http://localhost:3000/cars/67e88ece2a034b42d2467980 HTTP/1.1
+//delete http://localhost:3000/owner/67e88f232a034b42d2467981 HTTP/1.1
 content-type: application/json
 
 
